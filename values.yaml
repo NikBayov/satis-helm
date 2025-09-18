@@ -1,0 +1,33 @@
+# Global values
+namespace: satis
+
+# Satis configuration
+satis:
+  name: nikbayov/satis-repo
+  homepage: https://satis.nikbayov.ru
+  serverName: satis.nikbayov.ru
+  storageSize: 50Gi
+  storageClassName: sc
+# Nginx configuration
+nginx:
+  image: nginx:alpine
+  port: 80
+
+# Satis builder configuration
+builder:
+  image: composer/satis
+  schedule: "0 0 31 2 *"
+
+# TLS/SSL configuration
+tls:
+  enabled: false
+  secretName: satis-tls
+  clusterIssuer: letsencrypt-prod
+
+# Ingress configuration
+ingress:
+  enabled: false
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"

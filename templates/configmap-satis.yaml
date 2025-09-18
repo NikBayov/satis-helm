@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: satis-config
+  namespace: {{ .Values.namespace }}
+data:
+  satis.json: |
+    {
+      "name": "{{ .Values.satis.name }}",
+      "homepage": "{{ .Values.satis.homepage }}",
+      "repositories": [
+        {
+          "type": "composer",
+          "url": "https://packagist.org"
+        },
+        {
+          "type": "composer",
+          "url": "https://asset-packagist.org"
+        }	
+      ],
+      "minimum-stability": "dev",
+      "require": {
+        "php": "^7.1.11",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-redis": "*",
+        "vlucas/phpdotenv": "*",
+        "nex/yii2-graylog2": "dev-master@dev",
+        "nesbot/carbon": "*",
+        "phpmailer/phpmailer": "*",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "kartik-v/yii2-widget-datepicker": "*",
+        "kartik-v/yii2-widget-datetimepicker": "*",
+        "kartik-v/yii2-widgets": "*",
+        "zlakomanov/yii2-oracle-pack": "*",
+        "la-haute-societe/yii2-save-relations-behavior": "*",
+        "ext-pdo": "*",
+        "kartik-v/yii2-date-range": "dev-feature/addingButtonErase",
+        "kartik-v/yii2-export": "*",
+        "mihaildev/yii2-ckeditor": "*",
+        "shuchkin/simplexlsx": "*",
+        "edvlerblog/yii2-adldap-module": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*",
+        "rmrevin/yii2-fontawesome": "*",
+        "bower-asset/font-awesome": "*"
+      },
+      "config": {
+        "process-timeout": 1800,
+        "secure-http": false,
+        "fxp-asset": {
+          "enabled": false
+        },
+        "discard-changes": true,
+        "platform": {
+          "php": "7.1.11"
+        },
+        "allow-plugins": {
+          "yiisoft/yii2-composer": true
+        }
+      },
+      "require-dependencies": true,
+      "require-dev-dependencies": true,
+      "archive": {
+        "directory": "dist",
+        "format": "zip",
+        "skip-dev": false
+      }
+    }

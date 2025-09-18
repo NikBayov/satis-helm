@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: satis-output-pvc
+  namespace: {{ .Values.namespace }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.satis.storageSize }}
+  volumeMode: Filesystem
+  storageClassName: {{ .Values.satis.storageClassName }}
