@@ -23,7 +23,7 @@ tls:
   enabled: false
   secretName: satis-tls
   clusterIssuer: letsencrypt-prod
-
+  dnsNames: satis.nikbayov.ru 
 # Ingress configuration
 ingress:
   enabled: false
