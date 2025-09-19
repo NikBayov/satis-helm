@@ -21,4 +21,4 @@ helm upgrade --install satis . -n satis -f values.yaml
 kubectl create job --from=cronjob/satis-build satis-manual-$(date +%s) -n satis
 ```
 ### Awaiting completion of the job and checking the result
-![Alt text][(https://example.com/image.jpg](https://github.com/NikBayov/Administration/blob/main/cache/picture/satis.png)
+![Alt text][https://github.com/NikBayov/Administration/blob/main/cache/picture/satis.png]
