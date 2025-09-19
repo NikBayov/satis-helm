@@ -29,5 +29,5 @@ kubectl create job --from=cronjob/satis-build satis-manual-$(date +%s) -n satis
 ##Notes
 To add new packages, you need to add them to the [ConfigMap](./templates/configmap-satis.yaml) and run:
 ```
-user@server:/satis-helm helm# upgrade satis . -n satis -f values.yaml && kubectl create job --from=cronjob/satis-build satis-manual-$(date +%s) -n satis
+user@server:/satis-helm# helm upgrade satis . -n satis -f values.yaml && kubectl create job --from=cronjob/satis-build satis-manual-$(date +%s) -n satis
 ```
