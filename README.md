@@ -8,17 +8,20 @@ kubectl create ns satis
 ```
 cd satis-helm
 ```
-### 3. Edit ConfigMap
+### 3. Edit values.yaml
+You need to replace your values in [values.yaml](./values.yaml)
+
+### 4. Edit ConfigMap
 You need to add your composer packages in [ConfigMap](./templates/configmap-satis.yaml)
 
-### 4. Install satis
+### 5. Install satis
 ```
 helm upgrade --install satis . -n satis -f values.yaml
 ```
 
-### 5. Build and download packages(I did manual)
+### 6. Build and download packages(I did manual)
 ```
 kubectl create job --from=cronjob/satis-build satis-manual-$(date +%s) -n satis
 ```
-### Awaiting completion of the job and checking the result
+### 7. Awaiting completion of the job and checking the result
 ![Alt text](https://github.com/NikBayov/Administration/blob/main/cache/picture/satis.png)
