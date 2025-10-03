@@ -4,7 +4,7 @@
 ```
 kubectl create ns satis
 ```
-### 2. Download project
+### 2. Download helm-chart
 ```
 https://github.com/NikBayov/satis-helm.git && cd satis-helm
 ```
