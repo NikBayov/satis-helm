@@ -6,7 +6,7 @@ kubectl create ns satis
 ```
 ### 2. Download helm-chart
 ```
-https://github.com/NikBayov/satis-helm.git && cd satis-helm
+git clone https://github.com/NikBayov/satis-helm.git && cd satis-helm
 ```
 ### 3. Edit values.yaml
 You need to replace your values in [values.yaml](./values.yaml)
